@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    
+
+    
+<div class="card custom-card">
+    <div class="card-body">
+        <h5 class="card-title">{{request.user}}</h5>
+        <h5 class="card-title">Required Calorie: {{calinfo.result}}</h5>
+        <h5 class="card-title">Food Consumed Need Calorie: {{result}}</h5>
+    </div>
+</div>
+<br>
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Username</th>
+            <th scope="col">Food Name</th>
+            <th scope="col">Consume Calorie</th>
+            <th scope="col">Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        {% for food in foodinfo %}
+        <tr>
+            <th scope="row">{{food.user.username}}</th>
+            <td>{{food.name}}</td>
+            <td>{{food.consume}}</td>
+            <td>{{food.date}}</td>
+        </tr> 
+        {% endfor %}
+
+    </tbody>
+</table>
+
+
+{% endblock content %}
